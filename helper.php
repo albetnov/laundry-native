@@ -32,3 +32,22 @@ function urlMatch($url, $class)
         return '';
     }
 }
+
+function get_http_protocol()
+{
+    if (!empty($_SERVER['HTTPS'])) {
+        return "https";
+    } else {
+        return "http";
+    }
+}
+
+function base_url($portOnly = false)
+{
+    if ($portOnly) {
+        return $_SERVER['SERVER_PORT'];
+    }
+    $port = isset($_SERVER['SERVER_PORT']) ? ':' . $_SERVER['SERVER_PORT'] : '';
+    $server = explode('/', $_SERVER['REQUEST_URI']);
+    return get_http_protocol() . '://' . $_SERVER['SERVER_NAME'] . $port . '/' . $server[1];
+}
