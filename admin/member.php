@@ -1,14 +1,14 @@
 <?php
 require_once __DIR__ . '/middleware.php';
-$title = "Manage Paket";
+$title = "Manage Member";
 define('CALLED', true);
-require_once __DIR__ . '/controller/paket.php';
+require_once __DIR__ . '/controller/member.php';
 require_once __DIR__ . '/header.php';
 ?>
 <div class="container-fluid">
     <div class="card shadow">
         <div class="card-header">
-            Data Paket
+            Data Member
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -16,10 +16,10 @@ require_once __DIR__ . '/header.php';
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Jenis Paket</th>
-                            <th>Nama Paket</th>
-                            <th>Harga Paket</th>
-                            <th>Outlet</th>
+                            <th>Nama</th>
+                            <th>Alamat</th>
+                            <th>Jenis Kelamin</th>
+                            <th>telepon</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -27,10 +27,10 @@ require_once __DIR__ . '/header.php';
                         <?php foreach (get() as $row) : ?>
                             <tr>
                                 <td><?= !isset($i) ? $i = 1 : ++$i ?></td>
-                                <td><?= $row->jenis_paket ?></td>
-                                <td><?= $row->nama_paket ?></td>
-                                <td><?= $row->harga ?></td>
-                                <td><?= $row->nama_outlet ?></td>
+                                <td><?= $row->nama ?></td>
+                                <td><?= $row->alamat ?></td>
+                                <td><?= $row->jenis_kelamin == 'L' ? 'Laki-Laki' : 'Perempuan' ?></td>
+                                <td><?= $row->tlp ?></td>
                                 <td>
                                     <button class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></button>
                                     <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>

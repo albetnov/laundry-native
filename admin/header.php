@@ -56,8 +56,8 @@
                     <span>User</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">
+            <li class="nav-item <?= urlMatch('/admin/outlet', 'active') ?>">
+                <a class="nav-link" href="outlet">
                     <i class="fas fa-fw fa-store-alt"></i>
                     <span>Outlet</span></a>
             </li>
@@ -68,14 +68,14 @@
                     <span>Paket</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">
+            <li class="nav-item <?= urlMatch('/admin/member', 'active') ?>">
+                <a class="nav-link" href="member">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Pelanggan</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">
+            <li class="nav-item <?= urlMatch('/admin/transaksi', 'active') ?>">
+                <a class="nav-link" href="transaksi">
                     <i class="fas fa-fw fa-shopping-cart"></i>
                     <span>Transaksi</span></a>
             </li>

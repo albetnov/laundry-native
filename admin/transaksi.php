@@ -1,14 +1,14 @@
 <?php
 require_once __DIR__ . '/middleware.php';
-$title = "Manage Paket";
+$title = "Manage Transaksi";
 define('CALLED', true);
-require_once __DIR__ . '/controller/paket.php';
+require_once __DIR__ . '/controller/transaksi.php';
 require_once __DIR__ . '/header.php';
 ?>
 <div class="container-fluid">
     <div class="card shadow">
         <div class="card-header">
-            Data Paket
+            Data Transaksi
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -16,10 +16,12 @@ require_once __DIR__ . '/header.php';
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Jenis Paket</th>
-                            <th>Nama Paket</th>
-                            <th>Harga Paket</th>
-                            <th>Outlet</th>
+                            <th>Nama Outlet</th>
+                            <th>Kode Invoice</th>
+                            <th>Nama Member</th>
+                            <th>Batas Waktu</th>
+                            <th>Status</th>
+                            <th>Pengurus</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -27,10 +29,12 @@ require_once __DIR__ . '/header.php';
                         <?php foreach (get() as $row) : ?>
                             <tr>
                                 <td><?= !isset($i) ? $i = 1 : ++$i ?></td>
-                                <td><?= $row->jenis_paket ?></td>
-                                <td><?= $row->nama_paket ?></td>
-                                <td><?= $row->harga ?></td>
                                 <td><?= $row->nama_outlet ?></td>
+                                <td><?= $row->kode_invoice ?></td>
+                                <td><?= $row->nama_member ?></td>
+                                <td><?= $row->batas_waktu ?></td>
+                                <td><?= $row->status ?></td>
+                                <td><?= $row->pengurus ?></td>
                                 <td>
                                     <button class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></button>
                                     <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
