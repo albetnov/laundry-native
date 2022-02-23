@@ -19,3 +19,16 @@ function connectDB()
     }
     return $koneksi;
 }
+
+function urlMatch($url, $class)
+{
+    $server = explode('/', $_SERVER['REQUEST_URI']);
+    array_shift($server);
+    array_shift($server);
+    $server = '/' . implode('/', $server);
+    if ($url == $server) {
+        return $class;
+    } else {
+        return '';
+    }
+}
