@@ -11,6 +11,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($nama) || empty($username) || empty($pass) || empty($conpass)) {
     }
 } else {
-    header('location:index.php');
-    exit;
+    exit(header('location:index.php'));
 }

@@ -51,3 +51,9 @@ function base_url($portOnly = false)
     $server = explode('/', $_SERVER['REQUEST_URI']);
     return get_http_protocol() . '://' . $_SERVER['SERVER_NAME'] . $port . '/' . $server[1];
 }
+
+function redirect($url)
+{
+    echo "<script>location.href='" . base_url() . "{$url}'</script>";
+    exit;
+}

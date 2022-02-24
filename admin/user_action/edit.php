@@ -1,16 +1,16 @@
 <?php
 require_once __DIR__ . '/../middleware.php';
-$title = "Buat User";
+$title = "Edit User";
 define('CALLED', true);
-require_once __DIR__ . '/controller/vbuat.php';
+require_once __DIR__ . '/controller/cedit.php';
 require_once __DIR__ . '/../header.php';
-
-insert();
+$data = edit();
+performEdit();
 ?>
 <div class="container-fluid mb-2">
     <div class="card">
         <div class="card-header">
-            Buat Data User
+            Edit Data User
         </div>
         <div class="card-body">
             <?php if (isset($_SESSION['pesan'])) {
@@ -23,11 +23,14 @@ insert();
             <form action="#" method="POST">
                 <div class="form-group row">
                     <div class="col">
-                        <input type="text" name="username" class="form-control" placeholder="Masukkan username anda...">
+                        <input type="text" name="username" class="form-control" placeholder="Masukkan username anda..." value="<?= $data->username ?>">
                     </div>
                     <div class="col">
-                        <input type="text" name="nama" class="form-control" placeholder="Masukkan nama anda...">
+                        <input type="text" name="nama" class="form-control" placeholder="Masukkan nama anda..." value="<?= $data->nama ?>">
                     </div>
+                </div>
+                <div class="alert alert-warning">
+                    <i class="fas fa-info-circle"></i> Biarkan kosong bila anda tidak ingin mengganti password.
                 </div>
                 <div class="form-group row">
                     <div class="col">
@@ -42,16 +45,16 @@ insert();
                         <select name="outlet" class="form-control">
                             <option value="">--PILIH OUTLET--</option>
                             <?php foreach (outlet() as $outlet) : ?>
-                                <option value="<?= $outlet->id ?>"><?= $outlet->nama ?></option>
+                                <option value="<?= $outlet->id ?>" <?= $data->id_outlet == $outlet->id ? 'selected' : '' ?>><?= $outlet->nama ?></option>
                             <?php endforeach ?>
                         </select>
                     </div>
                     <div class="col">
                         <select name="role" class="form-control">
                             <option value="">--PILIH ROLE--</option>
-                            <option value="admin">Admin</option>
-                            <option value="kasir">Kasir</option>
-                            <option value="owner">Owner</option>
+                            <option value="admin" <?= $data->role == 'admin' ? 'selected' : '' ?>>Admin</option>
+                            <option value="kasir" <?= $data->role == 'kasir' ? 'selected' : '' ?>>Kasir</option>
+                            <option value="owner" <?= $data->role == 'owner' ? 'selected' : '' ?>>Owner</option>
                         </select>
                     </div>
                 </div>

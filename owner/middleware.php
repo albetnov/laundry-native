@@ -5,15 +5,12 @@ session_start();
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] != 'owner') {
         if ($_SESSION['role'] == 'admin') {
-            header('location:../admin/dashboard');
-            exit;
+            exit(header('location:../admin/dashboard'));
         } else {
-            header('location:../kasir/dashboard');
-            exit;
+            exit(header('location:../kasir/dashboard'));
         }
     }
 } else {
     $_SESSION['pesan'] = "Anda belum login!";
-    header('location:../index');
-    exit;
+    exit(header('location:../index'));
 }

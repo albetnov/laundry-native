@@ -8,8 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (empty($username) || empty($password)) {
         $_SESSION['pesan'] = "Kolom tidak boleh ada yang kosong";
-        header('location:index');
-        exit;
+        exit(header('location:index'));
     }
 
     $stmt = connectDB()->prepare("SELECT * FROM tb_user WHERE username=?");
@@ -20,30 +19,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         foreach ($result as $row) {
             if (!password_verify($password, $row->password)) {
                 $_SESSION['pesan'] = "Akun tidak ditemukan!";
-                header('location:index.php');
-                exit;
+                exit(header('location:index.php'));
             }
             $_SESSION['nama'] = $row->nama;
             $_SESSION['id'] = $row->id;
             $_SESSION['role'] = $row->role;
             var_dump($row->role);
             if ($row->role == 'admin') {
-                header('location:admin/dashboard');
-                exit;
+                exit(header('location:admin/dashboard'));
             } else if ($row->role == 'kasir') {
-                header('location:kasir/dashboard');
-                exit;
+                exit(header('location:kasir/dashboard'));
             } else {
-                header('location:owner/dashboard');
-                exit;
+                exit(header('location:owner/dashboard'));
             }
         }
     } else {
         $_SESSION['pesan'] = "Akun tidak ditemukan!";
-        header('location:index.php');
-        exit;
+        exit(header('location:index.php'));
     }
 } else {
-    header('location:index.php');
-    exit;
+    exit(header('location:index.php'));
 }
