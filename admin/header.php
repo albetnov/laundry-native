@@ -42,7 +42,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item <?= urlMatch('/admin/dashboard', 'active') ?>">
-                <a class="nav-link" href="dashboard">
+                <a class="nav-link" href="<?= base_url() ?>/admin/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -51,31 +51,31 @@
             <hr class="sidebar-divider">
 
             <li class="nav-item <?= urlMatch('/admin/user', 'active') ?>">
-                <a class="nav-link" href="user">
+                <a class="nav-link" href="<?= base_url() ?>/admin/user">
                     <i class="fas fa-fw fa-user"></i>
                     <span>User</span></a>
             </li>
 
             <li class="nav-item <?= urlMatch('/admin/outlet', 'active') ?>">
-                <a class="nav-link" href="outlet">
+                <a class="nav-link" href="<?= base_url() ?>/admin/outlet">
                     <i class="fas fa-fw fa-store-alt"></i>
                     <span>Outlet</span></a>
             </li>
 
             <li class="nav-item <?= urlMatch('/admin/paket', 'active') ?>">
-                <a class="nav-link" href="paket">
+                <a class="nav-link" href="<?= base_url() ?>/admin/paket">
                     <i class="fas fa-fw fa-archive"></i>
                     <span>Paket</span></a>
             </li>
 
             <li class="nav-item <?= urlMatch('/admin/member', 'active') ?>">
-                <a class="nav-link" href="member">
+                <a class="nav-link" href="<?= base_url() ?>/admin/member">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Pelanggan</span></a>
             </li>
 
             <li class="nav-item <?= urlMatch('/admin/transaksi', 'active') ?>">
-                <a class="nav-link" href="transaksi">
+                <a class="nav-link" href="<?= base_url() ?>/admin/transaksi">
                     <i class="fas fa-fw fa-shopping-cart"></i>
                     <span>Transaksi</span></a>
             </li>
