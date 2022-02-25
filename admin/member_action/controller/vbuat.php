@@ -14,7 +14,7 @@ function insert()
         $tlp = escapeInput($_POST['tlp']);
         if (empty($nama) || empty($tlp) || empty($alamat) || empty($jenis_kelamin)) {
             $_SESSION['pesan'] = "Kolom tidak boleh ada yang kosong!";
-            echo "<script>location.href='" . base_url() . "/admin/member_action/buat'</script>";
+            return redirect("/admin/member_action/buat");
             exit;
         }
 
@@ -22,7 +22,7 @@ function insert()
         $attempt = $query->execute([$nama, $alamat, $jenis_kelamin, $tlp]);
         if ($attempt) {
             $_SESSION['pesan'] = "Pelanggan berhasil ditambah!";
-            echo "<script>location.href='" . base_url() . "/admin/member'</script>";
+            return redirect("/admin/member");
             exit;
         }
     }

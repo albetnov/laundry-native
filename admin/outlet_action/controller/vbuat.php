@@ -21,7 +21,7 @@ function insert()
         $alamat = escapeInput($_POST['alamat']);
         if (empty($nama) || empty($tlp) || empty($alamat)) {
             $_SESSION['pesan'] = "Kolom tidak boleh ada yang kosong!";
-            echo "<script>location.href='" . base_url() . "/admin/outlet_action/buat'</script>";
+            return redirect('/admin/outlet_action/buat');
             exit;
         }
 
@@ -29,7 +29,7 @@ function insert()
         $attempt = $query->execute([$nama, $alamat, $tlp]);
         if ($attempt) {
             $_SESSION['pesan'] = "Outlet berhasil ditambah!";
-            echo "<script>location.href='" . base_url() . "/admin/outlet'</script>";
+            return redirect('/admin/outlet');
             exit;
         }
     }

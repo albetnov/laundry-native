@@ -4,7 +4,7 @@ require_once __DIR__ . '/../middleware.php';
 require_once __DIR__ . '/../../helper.php';
 
 if ($_SESSION['token'] !== $_GET['token']) {
-    return redirect('/admin/user');
+    return redirect('/admin/member');
 }
 unset($_SESSION['token']);
 

@@ -45,16 +45,16 @@ function performEdit()
         $tlp = escapeInput($_POST['tlp']);
         if (empty($nama) || empty($alamat) || empty($tlp)) {
             $_SESSION['pesan'] = "Kolom tidak boleh ada yang kosong!";
-            echo "<script>location.href='" . base_url() . "/admin/outlet_action/edit?id={$id}'</script>";
+            return redirect('/admin/outlet_action/edit?id=' . $id);
             exit;
         }
-    
+
         $query = connectDB()->prepare("UPDATE tb_outlet SET nama=?,alamat=?,tlp=? WHERE id=?");
         $attempt = $query->execute([$nama, $alamat, $tlp, $id]);
 
         if ($attempt) {
             $_SESSION['pesan'] = "Outlet berhasil diedit!";
-            echo "<script>location.href='" . base_url() . "/admin/outlet'</script>";
+            return redirect('/admin/outlet');
             exit;
         }
     }

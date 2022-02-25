@@ -22,7 +22,7 @@ function insert()
         $harga = escapeInput($_POST['harga']);
         if (empty($nama_paket) || empty($id_outlet) || empty($jenis) || empty($harga)) {
             $_SESSION['pesan'] = "Kolom tidak boleh ada yang kosong!";
-            echo "<script>location.href='" . base_url() . "/admin/paket_action/buat'</script>";
+            return redirect("/admin/paket_action/buat");
             exit;
         }
 
@@ -30,7 +30,7 @@ function insert()
         $attempt = $query->execute([$nama_paket, $id_outlet, $jenis, $harga]);
         if ($attempt) {
             $_SESSION['pesan'] = "Paket berhasil ditambah!";
-            echo "<script>location.href='" . base_url() . "/admin/paket'</script>";
+            return redirect("/admin/paket");
             exit;
         }
     }

@@ -24,19 +24,19 @@ function insert()
         $role = escapeInput($_POST['role']);
         if (empty($username) || empty($nama) || empty($pass) || empty($conpass) || empty($outlet) || empty($role)) {
             $_SESSION['pesan'] = "Kolom tidak boleh ada yang kosong!";
-            echo "<script>location.href='" . base_url() . "/admin/user_action/buat'</script>";
+            return redirect('/admin/user_action/buat');
             exit;
         }
 
         if (strlen($pass) < 8 || strlen($conpass) < 8) {
             $_SESSION['pesan'] = "Password anda terlalu pendek!";
-            echo "<script>location.href='" . base_url() . "/admin/user_action/buat'</script>";
+            return redirect('/admin/user_action/buat');
             exit;
         }
 
         if ($pass != $conpass) {
             $_SESSION['pesan'] = "Kolom password harus sama!";
-            echo "<script>location.href='" . base_url() . "/admin/user_action/buat'</script>";
+            return redirect('/admin/user_action/buat');
             exit;
         }
 
@@ -45,7 +45,7 @@ function insert()
         $attempt = $query->execute([$username, $nama, $pass, $outlet, $role]);
         if ($attempt) {
             $_SESSION['pesan'] = "User berhasil ditambah!";
-            echo "<script>location.href='" . base_url() . "/admin/user'</script>";
+            return redirect('/admin/user');
             exit;
         }
     }

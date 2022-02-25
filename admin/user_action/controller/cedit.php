@@ -48,24 +48,24 @@ function performEdit()
         $role = escapeInput($_POST['role']);
         if (empty($username) || empty($nama) || empty($outlet) || empty($role)) {
             $_SESSION['pesan'] = "Kolom tidak boleh ada yang kosong!";
-            echo "<script>location.href='" . base_url() . "/admin/user_action/edit?id={$id}'</script>";
+            return redirect('/admin/user_action/edit?id=' . $id);
             exit;
         }
         if (trim($pass) !== "") {
             if (empty($conpass)) {
                 $_SESSION['pesan'] = "Kolom tidak boleh ada yang kosong!";
-                echo "<script>location.href='" . base_url() . "/admin/user_action/edit?id={$id}'</script>";
+                return redirect('/admin/user_action/edit?id=' . $id);
                 exit;
             }
             if (strlen($pass) < 8 || strlen($conpass) < 8) {
                 $_SESSION['pesan'] = "Password anda terlalu pendek!";
-                echo "<script>location.href='" . base_url() . "/admin/user_action/edit?id={$id}'</script>";
+                return redirect('/admin/user_action/edit?id=' . $id);
                 exit;
             }
 
             if ($pass != $conpass) {
                 $_SESSION['pesan'] = "Kolom password harus sama!";
-                echo "<script>location.href='" . base_url() . "/admin/user_action/edit?id={$id}'</script>";
+                return redirect('/admin/user_action/edit?id=' . $id);
                 exit;
             }
 
@@ -78,7 +78,7 @@ function performEdit()
         }
         if ($attempt) {
             $_SESSION['pesan'] = "User berhasil diedit!";
-            echo "<script>location.href='" . base_url() . "/admin/user'</script>";
+            return redirect('/admin/user');
             exit;
         }
     }
