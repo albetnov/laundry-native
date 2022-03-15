@@ -20,7 +20,7 @@ function member()
     return $call_data->fetchAll(\PDO::FETCH_OBJ);
 }
 
-function user ()
+function user()
 {
     $call_data = connectDB()->query("SELECT * FROM tb_user ");
     $call_data->execute();
@@ -39,7 +39,7 @@ function edit()
 
     $sql = <<<'sql'
     SELECT kode_invoice, batas_waktu, status, tb_transaksi.id AS id_transaksi, tb_detail_transaksi.keterangan AS keterangan, tb_detail_transaksi.qty AS qty FROM tb_transaksi 
-    INNER JOIN tb_detail_transaksi ON tb_transaksi.id = tb_detail_transaksi.id_transaksi WHERE id=?
+    INNER JOIN tb_detail_transaksi ON tb_transaksi.id = tb_detail_transaksi.id_transaksi WHERE tb_transaksi.id=?
     sql;
 
     $call_data = connectDB()->prepare($sql);
