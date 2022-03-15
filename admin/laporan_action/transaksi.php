@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . '/../middleware.php';
-$title = "Manage Transaksi";
+require_once __DIR__.'/../middleware.php';
+$title = 'Manage Transaksi';
 define('CALLED', true);
-require_once __DIR__ . '/controller/transaksi.php';
-require_once __DIR__ . '/../header.php';
+require_once __DIR__.'/controller/transaksi.php';
+require_once __DIR__.'/../header.php';
 ?>
 <div class="container-fluid">
     <div class="card shadow">
@@ -16,11 +16,11 @@ require_once __DIR__ . '/../header.php';
             </div>
             
             <?php if (isset($_SESSION['pesan'])) {
-            ?>
+    ?>
                 <div class="alert alert-primary"><?= $_SESSION['pesan'] ?></div>
             <?php
                 unset($_SESSION['pesan']);
-            }
+}
             ?>
             <div class="table-responsive">
                 <table class="table" id="tabel">
@@ -37,7 +37,7 @@ require_once __DIR__ . '/../header.php';
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach (get() as $row) : ?>
+                        <?php foreach (get() as $row) { ?>
                             <tr>
                                 <td><?= !isset($i) ? $i = 1 : ++$i ?></td>
                                 <td><?= $row->nama_outlet ?></td>
@@ -47,7 +47,7 @@ require_once __DIR__ . '/../header.php';
                                 <td><?= $row->status ?></td>
                                 <td><?= $row->pengurus ?></td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary" onclick="location.href='<?= base_url() . '/admin/transaksi_action/edit?id=' . $row->id_transaksi ?>'"><i class="fas fa-pen"></i></button>
+                                    <button class="btn btn-sm btn-primary" onclick="location.href='<?= base_url().'/admin/transaksi_action/edit?id='.$row->id_transaksi ?>'"><i class="fas fa-pen"></i></button>
 
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusData<?= $row->id_transaksi ?>">
@@ -71,7 +71,7 @@ require_once __DIR__ . '/../header.php';
                                                         $_SESSION['token'] = bin2hex(random_bytes(32));
                                                     }
                                                     ?>
-                                                    <button type="button" class="btn btn-primary" onclick="location.href='<?= base_url() . '/admin/transaksi_action/hapus?id=' . $row->id_transaksi . '&token=' . $_SESSION['token'] ?>'"><i class="fas fa-check"></i> Ya, hapus</button>
+                                                    <button type="button" class="btn btn-primary" onclick="location.href='<?= base_url().'/admin/transaksi_action/hapus?id='.$row->id_transaksi.'&token='.$_SESSION['token'] ?>'"><i class="fas fa-check"></i> Ya, hapus</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -79,7 +79,7 @@ require_once __DIR__ . '/../header.php';
                                 </td>
                                 
                             </tr>
-                        <?php endforeach ?>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -96,4 +96,4 @@ $js = <<<'js'
 </script>
 js;
 
-require_once __DIR__ . '/../footer.php'; ?>
+require_once __DIR__.'/../footer.php'; ?>

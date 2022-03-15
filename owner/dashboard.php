@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '/middleware.php';
-$title = "Laundry | Owner | Dashboard";
-require_once __DIR__ . '/header.php';
+require_once __DIR__.'/middleware.php';
+$title = 'Laundry | Owner | Dashboard';
+require_once __DIR__.'/header.php';
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -130,4 +130,4 @@ require_once __DIR__ . '/header.php';
     </div>
 
 </div>
-<?php include __DIR__ . '/footer.php'; ?>
+<?php include __DIR__.'/footer.php'; ?>

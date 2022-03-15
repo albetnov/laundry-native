@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . '/../middleware.php';
-$title = "Edit User";
+require_once __DIR__.'/../middleware.php';
+$title = 'Edit User';
 define('CALLED', true);
-require_once __DIR__ . '/controller/cedit.php';
-require_once __DIR__ . '/../header.php';
+require_once __DIR__.'/controller/cedit.php';
+require_once __DIR__.'/../header.php';
 $data = edit();
 performEdit();
 ?>
@@ -14,11 +14,11 @@ performEdit();
         </div>
         <div class="card-body">
             <?php if (isset($_SESSION['pesan'])) {
-            ?>
+    ?>
                 <div class="alert alert-danger">Error: <?= $_SESSION['pesan'] ?></div>
             <?php
                 unset($_SESSION['pesan']);
-            }
+}
             ?>
             <form action="#" method="POST">
                 <div class="form-group row">
@@ -44,9 +44,9 @@ performEdit();
                     <div class="col">
                         <select name="outlet" class="form-control">
                             <option value="">--PILIH OUTLET--</option>
-                            <?php foreach (outlet() as $outlet) : ?>
+                            <?php foreach (outlet() as $outlet) { ?>
                                 <option value="<?= $outlet->id ?>" <?= $data->id_outlet == $outlet->id ? 'selected' : '' ?>><?= $outlet->nama ?></option>
-                            <?php endforeach ?>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="col">
@@ -65,4 +65,4 @@ performEdit();
     </div>
 </div>
 <?php
-require_once __DIR__ . '/../footer.php'; ?>
+require_once __DIR__.'/../footer.php'; ?>

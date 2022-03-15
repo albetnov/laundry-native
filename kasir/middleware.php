@@ -11,6 +11,6 @@ if (isset($_SESSION['role'])) {
         }
     }
 } else {
-    $_SESSION['pesan'] = "Anda belum login!";
+    $_SESSION['pesan'] = 'Anda belum login!';
     exit(header('location:../index'));
 }

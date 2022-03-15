@@ -1,7 +1,7 @@
 <?php
 session_start();
-$title = "Login | Laundry";
-require_once __DIR__ . '/header.php';
+$title = 'Login | Laundry';
+require_once __DIR__.'/header.php';
 ?>
 <div class="container">
 
@@ -20,11 +20,11 @@ require_once __DIR__ . '/header.php';
                                     <h1 class="h4 text-gray-900 mb-4">Laundry Batam</h1>
                                 </div>
                                 <?php if (isset($_SESSION['pesan'])) {
-                                ?>
+    ?>
                                     <div class="alert alert-danger">Error: <?= $_SESSION['pesan'] ?></div>
                                 <?php
                                     unset($_SESSION['pesan']);
-                                }
+}
                                 ?>
                                 <form class="user" method="POST" action="handleLogin.php">
                                     <div class="form-group">
@@ -48,4 +48,4 @@ require_once __DIR__ . '/header.php';
     </div>
 
 </div>
-<?php require_once __DIR__ . '/footer.php' ?>
+<?php require_once __DIR__.'/footer.php' ?>

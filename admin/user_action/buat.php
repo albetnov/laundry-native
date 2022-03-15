@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . '/../middleware.php';
-$title = "Buat User";
+require_once __DIR__.'/../middleware.php';
+$title = 'Buat User';
 define('CALLED', true);
-require_once __DIR__ . '/controller/vbuat.php';
-require_once __DIR__ . '/../header.php';
+require_once __DIR__.'/controller/vbuat.php';
+require_once __DIR__.'/../header.php';
 
 insert();
 ?>
@@ -14,11 +14,11 @@ insert();
         </div>
         <div class="card-body">
             <?php if (isset($_SESSION['pesan'])) {
-            ?>
+    ?>
                 <div class="alert alert-danger">Error: <?= $_SESSION['pesan'] ?></div>
             <?php
                 unset($_SESSION['pesan']);
-            }
+}
             ?>
             <form action="#" method="POST">
                 <div class="form-group row">
@@ -41,9 +41,9 @@ insert();
                     <div class="col">
                         <select name="outlet" class="form-control">
                             <option value="">--PILIH OUTLET--</option>
-                            <?php foreach (outlet() as $outlet) : ?>
+                            <?php foreach (outlet() as $outlet) { ?>
                                 <option value="<?= $outlet->id ?>"><?= $outlet->nama ?></option>
-                            <?php endforeach ?>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="col">
@@ -62,4 +62,4 @@ insert();
     </div>
 </div>
 <?php
-require_once __DIR__ . '/../footer.php'; ?>
+require_once __DIR__.'/../footer.php'; ?>

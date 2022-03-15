@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . '/middleware.php';
-$title = "Manage Paket";
+require_once __DIR__.'/middleware.php';
+$title = 'Manage Paket';
 define('CALLED', true);
-require_once __DIR__ . '/controller/paket.php';
-require_once __DIR__ . '/header.php';
+require_once __DIR__.'/controller/paket.php';
+require_once __DIR__.'/header.php';
 ?>
 <div class="container-fluid">
     <div class="card shadow">
@@ -15,11 +15,11 @@ require_once __DIR__ . '/header.php';
                 <button class="btn btn-sm btn-primary" onclick="location.href='<?= base_url() ?>/admin/paket_action/buat'"><i class="fas fa-plus-circle"></i> Tambah Data</button>
             </div>
             <?php if (isset($_SESSION['pesan'])) {
-            ?>
+    ?>
                 <div class="alert alert-primary"><?= $_SESSION['pesan'] ?></div>
             <?php
                 unset($_SESSION['pesan']);
-            }
+}
             ?>
             <div class="table-responsive">
                 <table class="table" id="tabel">
@@ -34,7 +34,7 @@ require_once __DIR__ . '/header.php';
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach (get() as $row) : ?>
+                        <?php foreach (get() as $row) { ?>
                             <tr>
                                 <td><?= !isset($i) ? $i = 1 : ++$i ?></td>
                                 <td><?= $row->jenis_paket ?></td>
@@ -42,7 +42,7 @@ require_once __DIR__ . '/header.php';
                                 <td><?= $row->harga ?></td>
                                 <td><?= $row->nama_outlet ?></td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary" onclick="location.href='<?= base_url() . '/admin/paket_action/edit?id=' . $row->id ?>'"><i class="fas fa-pen"></i></button>
+                                    <button class="btn btn-sm btn-primary" onclick="location.href='<?= base_url().'/admin/paket_action/edit?id='.$row->id ?>'"><i class="fas fa-pen"></i></button>
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusData<?= $row->id ?>">
                                         <i class="fas fa-trash"></i>
@@ -65,14 +65,14 @@ require_once __DIR__ . '/header.php';
                                                         $_SESSION['token'] = bin2hex(random_bytes(32));
                                                     }
                                                     ?>
-                                                    <button type="button" class="btn btn-primary" onclick="location.href='<?= base_url() . '/admin/paket_action/hapus?id=' . $row->id . '&token=' . $_SESSION['token'] ?>'"><i class="fas fa-check"></i> Ya, hapus</button>
+                                                    <button type="button" class="btn btn-primary" onclick="location.href='<?= base_url().'/admin/paket_action/hapus?id='.$row->id.'&token='.$_SESSION['token'] ?>'"><i class="fas fa-check"></i> Ya, hapus</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                        <?php endforeach ?>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -89,4 +89,4 @@ $js = <<<'js'
 </script>
 js;
 
-require_once __DIR__ . '/footer.php'; ?>
+require_once __DIR__.'/footer.php'; ?>

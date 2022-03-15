@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . '/../middleware.php';
-$title = "Buat Transaksi";
+require_once __DIR__.'/../middleware.php';
+$title = 'Buat Transaksi';
 define('CALLED', true);
-require_once __DIR__ . '/controller/vbuat.php';
-require_once __DIR__ . '/../header.php';
+require_once __DIR__.'/controller/vbuat.php';
+require_once __DIR__.'/../header.php';
 
 insert();
 ?>
@@ -14,28 +14,28 @@ insert();
         </div>
         <div class="card-body">
             <?php if (isset($_SESSION['pesan'])) {
-            ?>
+    ?>
                 <div class="alert alert-danger">Error: <?= $_SESSION['pesan'] ?></div>
             <?php
                 unset($_SESSION['pesan']);
-            }
+}
             ?>
             <form action="#" method="POST">
                 <div class="form-group row">
                     <div class="col">
                         <select name="id_outlet" class="form-control">
                             <option value="">--PILIH OUTLET--</option>
-                            <?php foreach (outlet() as $outlet) : ?>
+                            <?php foreach (outlet() as $outlet) { ?>
                                 <option value="<?= $outlet->id ?>"><?= $outlet->nama ?></option>
-                            <?php endforeach ?>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="col">
                         <select name="id_member" class="form-control">
                             <option value="">--PILIH MEMBER--</option>
-                            <?php foreach (member() as $member) : ?>
+                            <?php foreach (member() as $member) { ?>
                             <option value="<?= $member->id?>"><?= $member->nama?></option>
-                            <?php endforeach ?>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
@@ -50,7 +50,7 @@ insert();
                     </div>
                     <div class="col">
                     <label>Tanggal Sekarang</label>
-                        <input type="text" name="tgl" value="<?= date("Y/m/d")?>" readonly class="form-control" placeholder="Masukkan tanggal sekarang...">
+                        <input type="text" name="tgl" value="<?= date('Y/m/d')?>" readonly class="form-control" placeholder="Masukkan tanggal sekarang...">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -107,17 +107,17 @@ insert();
                     <div class="col">
                         <select name="id_user" class="form-control">
                             <option value="">--PILIH USER--</option>
-                            <?php foreach (user() as $user) : ?>
+                            <?php foreach (user() as $user) { ?>
                             <option value="<?= $user->id?>"><?= $user->username?></option>
-                            <?php endforeach ?>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="col">
                         <select name="id_paket" class="form-control">
                             <option value="">--PILIH PAKET--</option>
-                            <?php foreach (paket() as $paket) : ?>
+                            <?php foreach (paket() as $paket) { ?>
                                 <option value="<?= $paket->id?>"><?= $paket->nama_paket?></option>
-                            <?php endforeach?>
+                            <?php }?>
                         </select>
                     </div>
                 </div>
@@ -151,4 +151,4 @@ function makeNew() {
 }
 </script>
 js;
-require_once __DIR__ . '/../footer.php'; ?>
+require_once __DIR__.'/../footer.php'; ?>

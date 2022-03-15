@@ -4,7 +4,7 @@ if (PHP_SAPI !== 'cli') {
     exit;
 }
 
-require_once __DIR__ . '/helper.php';
+require_once __DIR__.'/helper.php';
 
 $pass = password_hash('root123', PASSWORD_BCRYPT);
 
