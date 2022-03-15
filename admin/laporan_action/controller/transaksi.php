@@ -1,7 +1,7 @@
 <?php
 
 defined('CALLED') or die;
-require_once __DIR__ . '/../../helper.php';
+require_once __DIR__ . '/../../../helper.php';
 
 function get()
 {

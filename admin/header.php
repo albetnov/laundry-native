@@ -80,8 +80,8 @@
                     <span>Transaksi</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">
+            <li class="nav-item" <?= urlMatch('/admin/laporan', 'active')?>>
+                <a class="nav-link" href="<?= base_url() ?>/admin/laporan">
                     <i class="fas fa-fw fa-dollar-sign"></i>
                     <span>Laporan</span></a>
             </li>

@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . '/middleware.php';
+require_once __DIR__ . '/../middleware.php';
 $title = "Manage Transaksi";
 define('CALLED', true);
 require_once __DIR__ . '/controller/transaksi.php';
-require_once __DIR__ . '/header.php';
+require_once __DIR__ . '/../header.php';
 ?>
 <div class="container-fluid">
     <div class="card shadow">
@@ -96,4 +96,4 @@ $js = <<<'js'
 </script>
 js;
 
-require_once __DIR__ . '/footer.php'; ?>
+require_once __DIR__ . '/../footer.php'; ?>
